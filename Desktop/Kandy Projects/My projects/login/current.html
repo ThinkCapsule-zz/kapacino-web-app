@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+		<script src="https://kandy-portal.s3.amazonaws.com/public/javascript/fcs/3.0.4/fcs.js"></script>
+		<script src="https://kandy-portal.s3.amazonaws.com/public/javascript/kandy/2.2.2/kandy.js"></script>
+		<link href="./login.css" rel="stylesheet">
+
+<script>
+		 $("#login-button").click(function(event){
+		 event.preventDefault();
+	 
+			 $('form').fadeOut(500);
+			 $('.wrapper').addClass('form-success');
+		});
+		 </script>
+
+		<script>
+		KandyAPI.Phone.setup({
+			listeners: {
+				loginsuccess: function() {
+
+				},
+				loginfailed: function() {
+
+				}
+			}
+
+		});
+
+		KandyAPI.Phone.login(projectAPIkey, myUserName, myPassword);
+
+		KandyAPI.Phone.logout(function() {
+
+		});
+
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+	<div class="container">
+		<h1>Welcome</h1>
+		
+		<form class="form">
+			<input id="username" type="text" placeholder="Username">
+			<input id="password" type="password" placeholder="Password">
+			<button type="submit" id="login-button">Login</button>
+		</form>
+	</div>
+	
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+
+
+
+	</body>
+
+</html>

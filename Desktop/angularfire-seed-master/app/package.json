@@ -1,0 +1,10 @@
+{
+	"name" : "hacknights-website",
+	"description" : "A website for Western HackNights, part of HackWestern",
+	"author" : "The HackNights Web Team - Monique, Joanna and Michael",
+	"homepage" : "www.hackwestern.com",
+	"license" : "MIT",
+	"devDependencies" : {
+		
+	}
+}

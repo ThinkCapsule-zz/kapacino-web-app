@@ -70,7 +70,6 @@ form label span {
 }
 
 fieldset {
-   float: left;
    margin-right: 25px;
    padding: 25px;
 }
@@ -81,4 +80,8 @@ fieldset {
 
 #messages {
   list-style-type: none;
+}
+
+.fb-btn {
+  background-color: #3a5795;
 }

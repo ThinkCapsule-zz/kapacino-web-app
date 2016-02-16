@@ -51,6 +51,19 @@ angular.module('myApp.login', ['firebase.utils', 'firebase.auth', 'ngRoute'])
       }
     };
 
+    $scope.loginWithFB = function() {
+      var ref = new Firebase("https://radiant-inferno-4979.firebaseio.com");
+      ref.authWithOAuthPopup("facebook", function(error, authData) {
+        if (error) {
+          console.log("Login Failed!", error);
+        } else {
+          console.log("Authenticated successfully with payload:", authData);
+        }
+      }, {
+        scope: "email,user_likes"
+      });
+    };
+
     function assertValidAccountProps() {
       if( !$scope.email ) {
         $scope.err = 'Please enter an email address';

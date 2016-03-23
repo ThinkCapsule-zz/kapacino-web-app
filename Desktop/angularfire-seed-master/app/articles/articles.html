@@ -1,59 +1,21 @@
-<script src="./contentful.js"></script>
-
 <h2> Main feed </h2>
 
-<script> 
-	var article={
-				headline:"NULL",
-				author:"NULL",
-				body:"NULL",
-				subtitle:"NULL",
-				thumbnail:"",
-			}
+<!--article contentful-entry="'WuRr59yCycsWMc8ocaY8Q'">
+	<img height="200px" width="200px" ng-src="{{ $contentfulEntry.fields.arrayUrl[0] }}">
+	<h3>{{ $contentfulEntry.fields.headline }}</h3>
+	<h2>{{ $contentfulEntry.fields.tagline }}</h2>   
+	<p>{{ $contentfulEntry.updatedAt }}</p>
+	<p>By {{ $contentfulEntry.fields.byline }}</p>
+	<li ng-repeat="tag in $contentfulEntry.fields.tags">{{ tag }}</li>
+</article-->
 
-	var client = contentful.createClient({
-				space: '1oq1lgnwupsh',
-				accessToken: '9e202ccaa19212267e8a417356d41277c51ea827b2a1122c00f8f3ea0c25dfe3',
-				secure: true,
-				resolveLinks: true
-			});
-
-	client.space().then(
-				function(space) { console.log(space); },
-				function(error) { console.error(error); }
-				);
-	client.entry('aPMsX764zQmGEmowW08k2').then(function(result){
-				console.log("hello");
-				console.log(result);
-				console.log("hello");
-				console.log(result.fields.articleBody);
-				article.headline = result.fields.headline;
-				article.author = result.fields.byline;
-				article.subtitle = result.fields.articleBody;
-				//article.thumbnail = result.fields.thumbnails[0];
-				console.log(article.subtitle);
-				document.getElementById('whats-happening-heading').innerHTML = article.headline;
-				document.getElementById('article-preview').innerHTML = article.subtitle.substring(0,300)+".......";
-				document.getElementById('author').innerHTML = article.author;
-				//document.getElementById('whats-happening-img').setAttribute('src','https://images.contentful.com/1oq1lgnwupsh/2AbWNCATWgMCIAWiYsMcQ6/b3291c42014c66d832216f269fccf971/Screen_Shot_2015-09-02_at_10.13.38_AM.png')
-				//document.getElementById('image-container').style.backgroundImage = "url('https://images.contentful.com/1oq1lgnwupsh/2AbWNCATWgMCIAWiYsMcQ6/b3291c42014c66d832216f269fccf971/Screen_Shot_2015-09-02_at_10.13.38_AM.png')";
-			}, function(err){
-				console.log(err);
-			});
-</script>
-
-	<div id="image-container">
-			
+<ul contentful-entries>
+	<div ng-repeat="entry in $contentfulEntries.items">
+		<a href="/app/#/article">{{ entry.fields.headline }}</a><br>
+		<p>{{ entry.fields.tagline }}</p>
+		<p>By: {{ entry.fields.byline }}</p>
 	</div>
-	
-	<h1 id="whats-happening-heading">Photogenic Cat</h1>
-		
-	<p id="article-preview">
-		Fast food places worth spending your Flex Dollars on
-	</p>
+</ul> 
 
-	<p id="timestamp">
-		<span id="author">Ryan Medeiros</span> Uploaded 22 h ago
-	</p>
-
-	<p id="tags"></p>
+<!-- Click on entry, use a href=link and angularjs routes it to the entry page -->
+<!-- create angular service that removes images and videos from the contentful json response and displays it separately -->

@@ -1,0 +1,18 @@
+<article contentful-entry="'WuRr59yCycsWMc8ocaY8Q'">
+	<img height="200px" width="200px" ng-src="{{ $contentfulEntry.fields.arrayUrl[0] }}">
+	<h3>{{ $contentfulEntry.fields.headline }}</h3>
+	<h2>{{ $contentfulEntry.fields.tagline }}</h2>   
+	<p>By {{ $contentfulEntry.fields.byline }}</p>
+</article>
+
+
+<h2>Comments</h2>
+
+<form>
+  <input placeholder="Place comments here..." ng-model="newComment">
+  <button type="submit" ng-click="addComment(newComment);newComment = null;">Comment</button>
+</form>
+
+<ul id="messages" ng-show="comments.length">
+    <li ng-repeat="comment in comments | reverse">{{comment.text}}</li>
+</ul>

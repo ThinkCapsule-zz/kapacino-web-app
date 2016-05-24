@@ -13,23 +13,16 @@ body {
   margin: 1em;
   margin-bottom: 2em;
   padding: 2em;
-  background-color: #9b59b6;
-  color: #fff;
+  background-color: #fff;
+  color: #333;
 }
 
-.menu > a {
-  color: #fff;
+.menu > div > li > a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
+.menu > div > li {
   display: inline;
 }
 
@@ -37,14 +30,20 @@ body {
    display: none;
 }
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
 .menu > li:nth-child(1):before {
   content: "";
   padding: 0;
+}
+
+.menu-left {
+  float: left;
+  margin-left: 1em;
+}
+
+.menu-right {
+  float: right;
+  display: inline;
+  margin-right: 1em;
 }
 
 p.status {

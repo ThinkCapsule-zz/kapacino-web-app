@@ -14,18 +14,22 @@
 <body ng-cloak>
 
   <ul class="menu">
-    <li><a href="#/home">Home</a></li>
-    <li><a href="#">Places</a></li>
-    <li><a href="#/articles">Articles</a></li>
-    <li><a href="#">Blogs</a></li>
-    <li><a href="#">Event</a></li>
-    <li><a href="#">Videos</a></li>
-    <li><a href="#">Listings</a></li>
-    <li><a href="#/chat">comments</a></li>
-    <li ng-hide="loggedIn"><a href="#/login">login</a></li>
-    <li ng-show="loggedIn"><a href="#/account">account</a></li>
-    <li><input type="search" id="searchbar"></li>
-    <li><a ng-show="loggedIn" href="./#/account"><img src="./account/img/demo-pic.jpg" class="img-circle" width="100" height="100" alt="profilepic"></a></li>
+    <div class="menu-left">
+      <li><a href="#/home">KAPACINO</a></li>
+    </div>
+    <div class="menu-right">
+      <li><a href="#">POI</a></li>
+      <li><a href="#">Blogs</a></li>
+      <li><a href="#/articles">Articles</a></li>
+      <li><a href="#">Videos</a></li>
+      <li><a href="#">Social</a></li>
+      <!--li><a href="#/chat">comments</a></li-->
+      <li ng-hide="loggedIn"><a href="#/login">login</a></li>
+      <li ng-show="loggedIn"><a href="#/account">account</a></li>
+      <!--li><input type="search" id="searchbar"></li-->
+      <li><a ng-show="loggedIn" href="./#/account"><img src="" class="img-circle" width="100" height="100" alt="profilepic"></a></li>
+      <li><a ng-show="loggedIn" href="./#/account" id="userName">Alyssa</a></li>
+    </div>
   </ul>
 
   <div ng-view></div>
